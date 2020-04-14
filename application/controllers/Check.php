@@ -77,9 +77,22 @@ class Check extends CI_Controller
     public function show_user_form()
     {
         $user_id = $this->input->post("u_id");
-        $user = $this->Course_model->get_id_product($user_id);
+        $user = $this->Register_model->get_id_user($user_id);
         echo json_encode($user);
 
+        return true;
+    }
+
+    public function show_user_from()
+    {
+        $product_id = $this->input->post("product_id");
+        $product_name = $this->input->post("product_name");
+        $product_price = $this->input->post("product_price");
+        $product_amount = $this->input->post("product_amount");
+
+        $this->Product_model->update_product($product_id, $product_name, $product_price, $product_amount);
+
+        //header('Location: show_product');
         return true;
     }
 }

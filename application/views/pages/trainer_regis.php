@@ -4,7 +4,7 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-lg-10">
-                        <h1 class="card-title">ข้อมูลการสมัครของเทรนเนอร์</h1>
+                        <h1 class="card-title">ข้อมูลของเทรนเนอร์</h1>
                     </div>
                     <div class="col-lg-2">
                         <!-- start modal add form     -->
@@ -131,7 +131,7 @@
                     </div>
                 </div>
                 <p class="card-description">
-                    ตรวจสอบข้อมูลการสมัคร
+                    รายชื่อสมาชิกแอพพลิเคชั่น
                 </p>
                 <div class="table-responsive">
                     <table class="table" id="trainer_table">
@@ -142,7 +142,6 @@
                                 <th>เพศ</th>
                                 <th>อีเมล</th>
                                 <th>facebook</th>
-                                <th>ตรวจสอบ</th>
                                 <th>ลบ</th>
                             </tr>
                         </thead>
@@ -176,16 +175,15 @@
                     "data": "contact"
                 },
             ],
-            "columnDefs": [{
-                    "targets": 5,
-                    "data": "id",
-                    "render": function(data, type, row, meta) {
-                        editButton = `<button type="button" class="btn btn-warning" id="editButton" data-toggle="modal" data-target="#editProductModal" onclick="edit_product(${data})">ตรวจสอบข้อมูล</button>`
-                        return editButton;
-                    },
-                },
+            "columnDefs": [
+                //     "targets": 5,
+                //     "data": "id",
+                //     "render": function(data, type, row, meta) {
+                //         editButton = `<button type="button" class="btn btn-warning" id="editButton" data-toggle="modal" data-target="#editProductModal" onclick="edit_product(${data})">ตรวจสอบข้อมูล</button>`
+                //         return editButton;
+                //     },
                 {
-                    "targets": 6,
+                    "targets": 5,
                     "data": "id",
                     "render": function(data, type, row, meta) {
                         deleteButton = `<button type="button" class="btn btn-danger" id="deleteButton" data-toggle="modal" data-target="#deleteProductModal" onclick="delete_product(${data})">ลบ</button>`

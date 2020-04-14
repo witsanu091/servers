@@ -79,7 +79,7 @@ if (ENVIRONMENT !== 'production') {
         'hostname' => 'localhost',
         'username' => 'root',
         'password' => '',
-        'database' => 'mytrainer_db',
+        'database' => 'mytrainer',
         'dbdriver' => 'mysqli',
         'dbprefix' => '',
         'pconnect' => false,

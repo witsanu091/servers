@@ -35,7 +35,7 @@
     <!-- partial:../../partials/_navbar.html -->
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo" href="<?= base_url('/welcome') ?>"><img src="<?= base_url('plugins/serein/') ?>images/logoweb.png" alt="logo" /></a>
+        <a class="navbar-brand brand-logo" href="<?= base_url('Check/check_register') ?>"><img src="<?= base_url('plugins/serein/') ?>images/logoweb.png" alt="logo" /></a>
         <a class="navbar-brand brand-logo-mini" href="<?= base_url('/customer') ?>"><img src="<?= base_url('plugins/serein/') ?>images/logoApp.png" alt="logo" /></a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
@@ -71,24 +71,24 @@
 
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link" href="<?= base_url('Check/check_register') ?>">
               <i class="mdi mdi-view-dashboard-outline menu-icon"></i>
               <span class="menu-title">Register</span>
             </a>
-          </li>
+          </li> -->
           <li class="nav-item">
             <a class="nav-link" href="<?= base_url('Check/check_register') ?>">
               <i class="mdi mdi-view-dashboard-outline menu-icon"></i>
               <span class="menu-title">Account</span>
             </a>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link" href="<?= base_url('welcome/home') ?>">
               <i class="mdi mdi-view-dashboard-outline menu-icon"></i>
               <span class="menu-title">Report</span>
             </a>
-          </li>
+          </li> -->
         </ul>
       </nav>
       <!-- partial -->

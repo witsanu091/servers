@@ -4,7 +4,7 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-lg-10">
-                        <h1 class="card-title">ข้อมูลการสมัครของผู้ใช้งาน</h1>
+                        <h1 class="card-title">ข้อมูลของผู้ใช้งาน</h1>
                     </div>
                     <div class="col-lg-2">
                         <!-- start modal add form     -->
@@ -137,7 +137,7 @@
                     </div>
                 </div>
                 <p class="card-description">
-                    ตรวจสอบข้อมูลการสมัคร
+                    รายชื่อสมาชิกแอพพลิเคชั่น
                 </p>
                 <div class="table-responsive">
                     <table class="table" id="user_table">
@@ -147,7 +147,7 @@
                                 <th>ชื่อจริง</th>
                                 <th>เพศ</th>
                                 <th>อีเมล</th>
-                                <th>ตรวจสอบ</th>
+
                                 <th>ลบ</th>
                             </tr>
                         </thead>
@@ -179,22 +179,13 @@
                 },
             ],
             "columnDefs": [{
-                    "targets": 4,
-                    "data": "id",
-                    "render": function(data, type, row, meta) {
-                        editButton = `<button type="button" class="btn btn-warning" id="editButton" data-toggle="modal" data-target="#editProductModal" onclick="edit_product(${data})">ตรวจสอบข้อมูล</button>`
-                        return editButton;
-                    },
+                "targets": 4,
+                "data": "id",
+                "render": function(data, type, row, meta) {
+                    deleteButton = `<button type="button" class="btn btn-danger" id="deleteButton" data-toggle="modal" data-target="#deleteProductModal" onclick="delete_product(${data})">ลบ</button>`
+                    return deleteButton;
                 },
-                {
-                    "targets": 5,
-                    "data": "id",
-                    "render": function(data, type, row, meta) {
-                        deleteButton = `<button type="button" class="btn btn-danger" id="deleteButton" data-toggle="modal" data-target="#deleteProductModal" onclick="delete_product(${data})">ลบ</button>`
-                        return deleteButton;
-                    },
-                }
-            ]
+            }]
         });
     });
 
@@ -235,23 +226,23 @@
     //     })
     // }
 
-    // function edit_product(p_id) { //show data of current product before update
-    //     var product_id = {
-    //         p_id: p_id
-    //     }
+    function edit_product(p_id) { //show data of current product before update
+        var product_id = {
+            p_id: p_id
+        }
 
-    //     var showData = $.ajax({
-    //         type: 'POST',
-    //         url: "<?= site_url("/product/show_product_editForm") ?>",
-    //         data: product_id,
-    //         dataType: "text",
-    //         success: function(resultData) {
-    //             productDetail = JSON.parse(resultData);
-    //             var product_id = $("#edit_product_id").val(productDetail.id);
-    //             var product_name = $("#edit_product_name").val(productDetail.name);
-    //             var product_price = $("#edit_product_price").val(productDetail.price);
-    //             var product_amount = $("#edit_product_amount").val(productDetail.amount);
-    //         }
-    //     })
-    // }
+        var showData = $.ajax({
+            type: 'POST',
+            url: "<?= site_url("/product/show_product_editForm") ?>",
+            data: product_id,
+            dataType: "text",
+            success: function(resultData) {
+                productDetail = JSON.parse(resultData);
+                var product_id = $("#edit_product_id").val(productDetail.id);
+                var product_name = $("#edit_product_name").val(productDetail.name);
+                var product_price = $("#edit_product_price").val(productDetail.price);
+                var product_amount = $("#edit_product_amount").val(productDetail.amount);
+            }
+        })
+    }
 </script>

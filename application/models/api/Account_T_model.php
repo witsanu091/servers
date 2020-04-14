@@ -55,4 +55,10 @@ class Account_T_model extends CI_Model
             return false;
         }
     }
+
+    // public function add_course() {
+    //     $data = array(
+    //         ''
+    //     )
+    // }
 }
