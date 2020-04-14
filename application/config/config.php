@@ -26,7 +26,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 if (ENVIRONMENT !== 'production') {
     $bas_url = 'http://localhost/server';
 } else {
-    $bas_url = '';
+    $bas_url = 'http://jarlod.tk/findTrainer';
 }
 $config['base_url'] = $bas_url;
 
