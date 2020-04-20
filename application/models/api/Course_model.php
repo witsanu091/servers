@@ -26,7 +26,6 @@ class Course_model extends CI_Model
         if (!empty($filter['CTID'])) {
             $this->db->where('CTID', $filter['CTID']);
         }
-
         if (!empty($filter['gender'])) {
             $this->db->where('gender', $filter['gender']);
         }
@@ -56,12 +55,12 @@ class Course_model extends CI_Model
         if (!empty($filter['UID'])) {
             $this->db->where('engage.UID', $filter['UID']);
         }
-
         if (!empty($filter['TID'])) {
             $this->db->where('trainer_course_aviable.TID', $filter['TID']);
         }
 
         if ($filter['seeby'] == 't') {
+
             $this->db->join('user', 'engage.UID = user.id');
         } else {
             $this->db->join('trainer', 'trainer_course_aviable.TID = trainer.id');
@@ -73,6 +72,9 @@ class Course_model extends CI_Model
 
         return $query->result();
     }
+
+
+
 
     public function add_course($TID, $CID, $TCPrice, $TCDetails, $LID, $SCHDID)
     {
@@ -118,5 +120,13 @@ class Course_model extends CI_Model
     {
         $query = $this->db->get('location');
         return $query->result();
+    }
+
+    public function change_status_engage($ENGID, $data)
+    {
+        $this->db->where('ENGID', $ENGID);
+        $this->db->update('engage', $data);
+
+        return true;
     }
 }

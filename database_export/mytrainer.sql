@@ -420,14 +420,14 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `firstname`, `lastname`, `nickname`, `weight`, `height`, `birthday`, `gender`, `telephone`, `email`, `username`, `password`, `status`, `ULatitude`, `ULongitude`, `type`, `token_login`) VALUES
-(1, 'พชร', 'สรภูมิ', 'ปี', 60, 174, '1998-05-16', 'male', '0929179015', 'patchara_cs@kkumail.com', 'patchara_ft', '63ef7d1f1d3d396a84bba4027e678f84', 1, NULL, NULL, 1, 'a5c4b5fb13dd7c9410aa0bdddecc3540'),
-(2, 'วิษณุ', 'พลไธสง', 'เพชร', 62, 175, '1997-10-02', 'male', '0955482818', 'witsanu_cs@kkumailmail.com', 'witsanu_ft', 'dc65c48db6296dabfabc2d9ab1330914', 2, NULL, NULL, 1, '71c030e3b22ec7284ce91329ae6ce855'),
+(1, 'พชร', 'สรภูมิ', 'ปี', 60, 174, '1998-05-16', 'male', '0929179015', 'patchara_cs@kkumail.com', 'patchara_ft', '63ef7d1f1d3d396a84bba4027e678f84', 2, NULL, NULL, 1, 'a5c4b5fb13dd7c9410aa0bdddecc3540'),
+(2, 'วิษณุ', 'พลไธสง', 'เพชร', 62, 175, '1997-10-02', 'male', '0955482818', 'witsanu_cs@kkumail.com', 'witsanu_ft', 'dc65c48db6296dabfabc2d9ab1330914', 1, NULL, NULL, 1, '71c030e3b22ec7284ce91329ae6ce855'),
 (3, 'ยุทธนา', 'รจนาสม', 'เจ', 58, 172, '1997-12-02', 'male', '0111111111', 'yuttana_cs@kkumail.com', 'yuttana_ft', '1bbd886460827015e5d605ed44252251', 1, NULL, NULL, 1, 'b83340d0d616138552bb3ea07ca40192'),
-(4, 'พิมมี่', 'อิอิ', 'พิมพิม', 48, 164, '2000-12-14', 'female', '0956455457', 'thitimaporn@hotmail', 'pim_tf', '25f9e794323b453885f5181f1b624d0b', 2, NULL, NULL, 1, NULL),
-(17, 'ศิริวัฒน์', 'สุทธิปัญโญ', 'แมน', 65, 175, '1997-03-18', 'male', '0222222222', 'man_gis@kkumail.com', 'man_ft', 'man12345', 1, NULL, NULL, 1, NULL),
-(18, 'ชิษณุพงษ์', 'ขันแก้ว', 'ซัน', 105, 175, '1998-08-07', 'male', '0333333333', 'sun_it@kkumail.com', 'sun_ft', 'sun12345', 1, NULL, NULL, 1, NULL),
-(19, 'ภคพงศ์', 'สอนเอก', 'น็อต', 52, 175, '1996-10-16', 'male', '0444444444', 'not_cs@kkumail.com', 'not_ft', 'not12345', 1, NULL, NULL, 1, NULL),
-(20, 'พงศกร', 'นาคอก', 'เบ็ค', 60, 175, '1997-03-01', 'male', '0555555555', 'beck_cs@kkumail.com', 'beck_ft', 'beck12345', 2, NULL, NULL, 1, NULL);
+(4, 'พิมมี่', 'อิอิ', 'พิมพิม', 48, 164, '2000-12-14', 'female', '0956455457', 'thitimaporn@hotmail', 'pim_tf', '25f9e794323b453885f5181f1b624d0b', 1, NULL, NULL, 1, NULL),
+(17, 'ศิริวัฒน์', 'สุทธิปัญโญ', 'แมน', 65, 175, '1997-03-18', 'male', '0222222222', 'man_gis@kkumail.com', 'man_ft', 'dc65c48db6296dabfabc2d9ab1330914', 1, NULL, NULL, 1, NULL),
+(18, 'ชิษณุพงษ์', 'ขันแก้ว', 'ซัน', 105, 175, '1998-08-07', 'male', '0333333333', 'sun_it@kkumail.com', 'sun_ft', 'dc65c48db6296dabfabc2d9ab1330914', 1, NULL, NULL, 1, NULL),
+(19, 'ภคพงศ์', 'สอนเอก', 'น็อต', 52, 175, '1996-10-16', 'male', '0444444444', 'not_cs@kkumail.com', 'not_ft', 'dc65c48db6296dabfabc2d9ab1330914', 1, NULL, NULL, 1, NULL),
+(20, 'พงศกร', 'นาคอก', 'เบ็ค', 60, 175, '1997-03-01', 'male', '0555555555', 'beck_cs@kkumail.com', 'beck_ft', 'dc65c48db6296dabfabc2d9ab1330914', 1, NULL, NULL, 1, NULL);
 
 -- --------------------------------------------------------
 

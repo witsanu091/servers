@@ -8,6 +8,7 @@ class Cousre extends CI_Controller
         parent::__construct();
         $this->load->model('api/Course_model');
         $this->load->library('template');
+        date_default_timezone_set("Asia/Bangkok");
     }
 
     public function get_course()
@@ -22,7 +23,8 @@ class Cousre extends CI_Controller
     {
         $filter = array(
             "CTID" => $this->input->get('ct'),
-            "gender" => $this->input->get('gender')
+            "gender" => $this->input->get('gender'),
+            "LID" => $this->input->get('LID')
         );
 
         $data = $this->Course_model->get_cousre_filter($filter);
@@ -42,7 +44,8 @@ class Cousre extends CI_Controller
             "UID" => $this->input->get("UID"),
             "StartCourse" => @$this->input->get("StartCourse"),
             "EndCourse" => @$this->input->get("EndCourse"),
-            "TCID" => $this->input->get("TCID")
+            "TCID" => $this->input->get("TCID"),
+            "engage_status" => "1"
         );
 
         $this->Course_model->connect_trainer($data);
@@ -63,7 +66,6 @@ class Cousre extends CI_Controller
             'TID' => @$this->input->get('TID'),
             'UID' => @$this->input->get('UID'),
         );
-
         $data = $this->Course_model->show_engage($filter);
         echo json_encode($data);
     }
@@ -118,5 +120,61 @@ class Cousre extends CI_Controller
     {
         $data = $this->Course_model->get_location_id();
         echo json_encode($data);
+    }
+
+    public function change_status_engage()
+    {
+
+        $ENGID = $this->input->get("ENGID");
+        $engage_status = $this->input->get("engage_status");
+        $res = array();
+        if (!empty($ENGID) || !empty($engage_status)) {
+            $data = array(
+                'ENGID' => $ENGID,
+                'engage_status' => $engage_status,
+                'StartCourse' => date("Y/m/d H:i:s")
+            );
+            $result_data = $this->Course_model->change_status_engage($ENGID, $data);
+            $res = array(
+                "status" => true,
+                "message" => "Successful",
+                "data" => $ENGID
+            );
+        } else {
+            $res = array(
+                "status" => false,
+                "message" => "is not parm",
+                "data" => $ENGID
+            );
+        }
+
+        echo json_encode($res);
+    }
+
+    public function end_course_engage()
+    {
+
+        $ENGID = $this->input->get("ENGID");
+        $res = array();
+        if (!empty($ENGID)) {
+            $data = array(
+                'ENGID' => $ENGID,
+                'EndCourse' => date("Y/m/d H:i:s")
+            );
+            $result_data = $this->Course_model->change_status_engage($ENGID, $data);
+            $res = array(
+                "status" => true,
+                "message" => "Successful",
+                "data" => $ENGID
+            );
+        } else {
+            $res = array(
+                "status" => false,
+                "message" => "is not parm",
+                "data" => $ENGID
+            );
+        }
+
+        echo json_encode($res);
     }
 }
