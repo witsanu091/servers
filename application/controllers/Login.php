@@ -27,7 +27,7 @@ class Login extends CI_Controller
         $username = $this->input->post('username');
         $password = $this->input->post('password');
         $database_check = $this->login_model->validate($username, $password);
-        if ($database_check['status']) {
+        if ($database_check['type']) {
             $this->session->name = $database_check['data']->firstname . " " . $database_check['data']->lastname;
         } else {
             $this->session->name = null;

@@ -29,7 +29,7 @@ class Course_model extends CI_Model
         if (!empty($filter['gender'])) {
             $this->db->where('gender', $filter['gender']);
         }
-        if (!empty($filter['LID'])) {
+        if ($filter['LID']) {
             $this->db->where('LID', $filter['LID']);
         }
 
@@ -67,14 +67,34 @@ class Course_model extends CI_Model
         }
 
         $this->db->join('location', 'trainer_course_aviable.LID = location.LID');
+        $this->db->order_by('ENGID', 'DESC');
+
 
         $query = $this->db->get('engage');
 
         return $query->result();
     }
 
+    public function show_end_engage($data)
+    {
+        $this->db->select('*');
+        $this->db->join('trainer_course_aviable', 'engage.TCID = trainer_course_aviable.TCID');
+        $this->db->join('course', 'trainer_course_aviable.CID = course.CID');
+        $this->db->join('trainer', 'trainer_course_aviable.TID = trainer.id');
 
+        if (!empty($data['UID'])) {
+            $this->db->where('engage.UID', $data['UID']);
+        }
+        $this->db->where("EndCourse !=", NULL);
+        $this->db->where("review_score =", NULL);
+        $this->db->where("engage_status =", 4);
 
+        $this->db->join('location', 'trainer_course_aviable.LID = location.LID');
+
+        $query = $this->db->get('engage');
+
+        return $query->result();
+    }
 
     public function add_course($TID, $CID, $TCPrice, $TCDetails, $LID, $SCHDID)
     {
@@ -123,6 +143,14 @@ class Course_model extends CI_Model
     }
 
     public function change_status_engage($ENGID, $data)
+    {
+        $this->db->where('ENGID', $ENGID);
+        $this->db->update('engage', $data);
+
+        return true;
+    }
+
+    public function review_score_engage($ENGID, $data)
     {
         $this->db->where('ENGID', $ENGID);
         $this->db->update('engage', $data);

@@ -70,6 +70,22 @@ class Cousre extends CI_Controller
         echo json_encode($data);
     }
 
+    public function show_end_engage()
+    {
+        $data = array(
+            'UID' => $this->input->get('UID'),
+
+        );
+        $data_C = $this->Course_model->show_end_engage($data);
+        $res = array(
+            "status" => true,
+            "message" => "Successful",
+            "data" => $data_C
+        );
+
+        echo json_encode($data_C);
+    }
+
     public function add_course()
     {
         $TID = $this->input->get('TID');
@@ -155,10 +171,12 @@ class Cousre extends CI_Controller
     {
 
         $ENGID = $this->input->get("ENGID");
+        $engage_status = $this->input->get("engage_status");
         $res = array();
-        if (!empty($ENGID)) {
+        if (!empty($ENGID) || !empty($engage_status)) {
             $data = array(
                 'ENGID' => $ENGID,
+                'engage_status' => $engage_status,
                 'EndCourse' => date("Y/m/d H:i:s")
             );
             $result_data = $this->Course_model->change_status_engage($ENGID, $data);
@@ -174,7 +192,34 @@ class Cousre extends CI_Controller
                 "data" => $ENGID
             );
         }
+        echo json_encode($res);
+    }
 
+    public function review_score_engage()
+    {
+
+        $ENGID = $this->input->get("ENGID");
+        $review_score = $this->input->get("review_score");
+        $res = array();
+        if (!empty($ENGID) || !empty($review_score)) {
+            $data = array(
+                'ENGID' => $ENGID,
+                'review_score' => $review_score,
+
+            );
+            $result_data = $this->Course_model->review_score_engage($ENGID, $data);
+            $res = array(
+                "status" => true,
+                "message" => "Successful",
+                "data" => $ENGID
+            );
+        } else {
+            $res = array(
+                "status" => false,
+                "message" => "is not parm",
+                "data" => $ENGID
+            );
+        }
         echo json_encode($res);
     }
 }
