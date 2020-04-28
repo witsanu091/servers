@@ -41,6 +41,12 @@ class Login extends CI_Controller
     {
         $this->load->view('/show_login');
     }
+
+    public function download_apk()
+    {
+        $this->template->set('title', 'Download APK');
+        $this->template->load('template/light', 'pages/download');
+    }
     //     public function login()
     //     {
     //         $form = $this->input->post();

@@ -83,12 +83,12 @@
               <span class="menu-title">Account</span>
             </a>
           </li>
-          <!-- <li class="nav-item">
-            <a class="nav-link" href="<?= base_url('welcome/home') ?>">
+          <li class="nav-item">
+            <a class="nav-link" href="<?= base_url('login/download_apk') ?>">
               <i class="mdi mdi-view-dashboard-outline menu-icon"></i>
-              <span class="menu-title">Report</span>
+              <span class="menu-title">download APK</span>
             </a>
-          </li> -->
+          </li>
         </ul>
       </nav>
       <!-- partial -->
