@@ -5,8 +5,7 @@
 
                 <div class="wrapper ml-4">
                     <a href="<?= base_url('apk/') ?>find_trainer.apk">กด Download</a>
-                    <p class="text-info mb-0 font-weight-medium">ดาวโหลดไฟล์ APK สำหรับติดตั้ง
-                        แอปพลิเคชั่น</p>
+                    <p class="text-info mb-0 font-weight-medium">ไฟล์ APK สำหรับติดตั้งแอปพลิเคชั่น</p>
                 </div>
             </div>
         </div>
