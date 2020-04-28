@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 27, 2020 at 08:20 AM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 7.3.3
+-- Generation Time: Apr 28, 2020 at 05:31 AM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -77,7 +76,7 @@ INSERT INTO `course` (`CID`, `CName`, `CTID`) VALUES
 (1, 'คอร์สเพิ่มกล้ามเนื้อ', 1),
 (2, 'คอร์สกระชับสัดส่วน', 2),
 (3, 'คอร์สลดน้ำหนักและไขมัน', 3),
-(4, 'คอร์สนักฬาวิ่ง', 4),
+(4, 'คอร์สนักกีฬาวิ่ง', 4),
 (5, 'คอร์สว่ายน้ำ', 4),
 (6, 'คอร์สชกมวย', 4),
 (7, 'คอร์สคาดิโอ', 3),
@@ -153,23 +152,15 @@ CREATE TABLE `engage` (
 --
 
 INSERT INTO `engage` (`ENGID`, `UID`, `StartCourse`, `EndCourse`, `TCID`, `engage_status`, `review_score`) VALUES
-(16, 1, NULL, '2020-04-26', 1, 4, 0),
 (17, 1, '2020-04-21', NULL, 6, 2, 3),
-(18, 1, NULL, '2020-04-25', 6, 4, 4),
-(19, 1, NULL, NULL, 23, 3, 2),
-(20, 1, NULL, NULL, 27, 2, 5),
-(21, 22, NULL, NULL, 24, 2, 3),
 (22, 1, '2020-04-21', '2020-04-25', 7, 4, 1),
 (23, 1, '2020-04-25', '2020-04-25', 10, 4, 5),
 (24, 1, '2020-04-21', NULL, 7, 3, 4),
 (27, 1, '2020-04-21', NULL, 23, 2, NULL),
-(28, 1, '2020-04-26', '2020-04-26', 28, 4, 5),
+(28, 1, '2020-04-26', NULL, 28, 4, 5),
 (29, 1, '2020-04-26', '2020-04-26', 1, 4, 3),
-(30, 1, NULL, NULL, 26, 1, NULL),
-(31, 1, NULL, NULL, 26, 1, NULL),
 (32, 1, '2020-04-26', '2020-04-26', 6, 4, 4),
-(33, 1, '2020-04-26', '2020-04-26', 3, 4, 4),
-(34, 1, '2020-04-27', NULL, 3, 2, NULL);
+(33, 1, '2020-04-26', '2020-04-26', 3, 4, 4);
 
 -- --------------------------------------------------------
 
@@ -222,7 +213,7 @@ CREATE TABLE `trainer` (
 --
 
 INSERT INTO `trainer` (`id`, `firstname`, `lastname`, `nickname`, `weight`, `height`, `birthday`, `gender`, `telephone`, `email`, `password`, `contact`, `status`, `type`, `token_login`) VALUES
-(1, 'พงสิทธิ์', 'กระเบา', 'ต้า', 67, 173, '1985-03-07', 'male', '0883265037', 'phongsit@hotmail.com ', '827ccb0eea8a706c4c34a16891f84e7b', 'Phongsit  Krabao', 1, 2, '291a29b848a754a2e04e45510c180e98'),
+(1, 'พงสิทธิ์', 'กระเบา', 'ต้า', 67, 173, '1985-03-07', 'male', '0883265037', 'phongsit@hotmail.com ', '827ccb0eea8a706c4c34a16891f84e7b', 'Phongsit  Krabao', 1, 2, '2de7084c0b4df4363804d886fc3e1e43'),
 (4, 'วัชร์สิทธิ์', 'น้อยชมพู', 'นุก', 93, 183, '1987-03-17', 'male', '0643064547', 'watchasit@gmail.com ', '827ccb0eea8a706c4c34a16891f84e7b', 'Nook Watchasit', 1, 2, ''),
 (5, 'สหชัย', 'ประดิษฐ์แท่น', 'ช็อปเปอร์', 90, 178, '1985-03-27', 'male', '0899456097', 'sahachai@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', 'Sahachai  Pradidtan', 1, 2, '00364b0d5b3fb4c0b4b9a2e65793e0c6'),
 (6, 'คุณณปภัช', 'เดชไพรกลา', 'ฝน', 55, 159, '1990-03-15', 'female', '0982454997', 'fon_t@hotmail.com', '827ccb0eea8a706c4c34a16891f84e7b', 'Khunnapaphach  Dechpraikla', 1, 2, '0a9f6e51857b928db4aeaa63f7a719cd'),
@@ -310,16 +301,14 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `firstname`, `lastname`, `nickname`, `weight`, `height`, `birthday`, `gender`, `telephone`, `email`, `password`, `status`, `type`, `token_login`) VALUES
-(1, 'พชร', 'สรภูมิ', 'ปี', 60, 174, '1998-05-16', 'male', '0929179015', 'patchara_cs@kkumail.com', '63ef7d1f1d3d396a84bba4027e678f84', 1, 1, '1d9cd45b3c45d0ca5127b107a5d979a7'),
-(2, 'วิษณุ', 'พลไธสง', 'เพชร', 62, 175, '1997-10-02', 'male', '0955482818', 'witsanu_cs@kkumail.com', 'dc65c48db6296dabfabc2d9ab1330914', 1, 1, '71c030e3b22ec7284ce91329ae6ce855'),
+(1, 'พชร', 'สรภูมิ', 'ปี', 60, 174, '1998-05-16', 'male', '0929179015', 'patchara_cs@kkumail.com', '63ef7d1f1d3d396a84bba4027e678f84', 1, 1, 'ab1426feaa9ee3271ea0dd670472645f'),
+(2, 'วิษณุ', 'พลไธสง', 'เพชร', 62, 175, '1997-10-02', 'male', '0955482818', 'witsanu_cs@kkumail.com', 'dc65c48db6296dabfabc2d9ab1330914', 1, 1, 'd75dcbbde938562507bf25d1514e8d09'),
 (3, 'ยุทธนา', 'รจนาสม', 'เจ', 58, 172, '1997-12-02', 'male', '0111111111', 'yuttana_cs@kkumail.com', '1bbd886460827015e5d605ed44252251', 1, 1, 'b83340d0d616138552bb3ea07ca40192'),
-(4, 'พิมมี่', 'อิอิ', 'พิมพิม', 48, 164, '2000-12-14', 'female', '0956455457', 'thitimaporn@hotmail', '25f9e794323b453885f5181f1b624d0b', 1, 1, NULL),
 (17, 'ศิริวัฒน์', 'สุทธิปัญโญ', 'แมน', 65, 175, '1997-03-18', 'male', '0222222222', 'man_gis@kkumail.com', 'man12345', 1, 1, NULL),
 (18, 'ชิษณุพงษ์', 'ขันแก้ว', 'ซัน', 105, 175, '1998-08-07', 'male', '0333333333', 'sun_it@kkumail.com', 'sun12345', 1, 1, NULL),
 (19, 'ภคพงศ์', 'สอนเอก', 'น็อต', 52, 175, '1996-10-16', 'male', '0444444444', 'not_cs@kkumail.com', 'not12345', 1, 1, NULL),
 (20, 'พงศกร', 'นาคอก', 'เบ็ค', 60, 175, '1997-03-01', 'male', '0555555555', 'beck_cs@kkumail.com', 'beck12345', 1, 1, NULL),
-(21, 'วะ', 'สรภูมิ', 'วะ', 70, 170, '0000-00-00', 'male', '0846855020', 'toy@hotmail.com', '10016b6ed5a5b09be08133fa2d282636', 1, 1, 'bfc946a9934999da0330d5e12815c43f'),
-(22, 'ที่รัก', 'ของผม', 'รัก', 48, 165, '1996-12-01', 'female', '0830238211', 'lover@hotmail.com', '58f3907ef81dee7443834b0f76d247e5', 1, 1, '5181ffe26e78d7b32afbd92523bc1fd1');
+(24, 'ผู้ใช้งาน', 'คนแรก', 'หนึ่ง', 15, 174, '2020-04-28', 'male', '0123456789', 'user1@mail.com', 'a176b04df256e82d5862e61a73cca8cf', 1, 1, 'ef7b69906417aaaa11bfe6b8d7112261');
 
 -- --------------------------------------------------------
 
@@ -328,7 +317,7 @@ INSERT INTO `user` (`id`, `firstname`, `lastname`, `nickname`, `weight`, `height
 --
 DROP TABLE IF EXISTS `avgscore`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `avgscore`  AS  select `tca`.`TID` AS `TID`,avg(`engage`.`review_score`) AS `avgscore` from (`engage` join `trainer_course_aviable` `tca`) where (`engage`.`TCID` = `tca`.`TCID`) group by `tca`.`TID` ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `avgscore`  AS  select `tca`.`TID` AS `TID`,avg(`engage`.`review_score`) AS `avgscore` from (`engage` join `trainer_course_aviable` `tca`) where `engage`.`TCID` = `tca`.`TCID` group by `tca`.`TID` ;
 
 -- --------------------------------------------------------
 
@@ -337,7 +326,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW 
 --
 DROP TABLE IF EXISTS `course_view`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `course_view`  AS  select distinct `tca`.`TCID` AS `TCID`,`t`.`id` AS `id`,`c`.`CTID` AS `CTID`,`c`.`CName` AS `CName`,`t`.`firstname` AS `firstname`,`t`.`lastname` AS `lastname`,`t`.`nickname` AS `nickname`,`t`.`gender` AS `gender`,`tca`.`TCPrice` AS `TCPrice`,`tca`.`TCDetails` AS `TCDetails`,`l`.`LName` AS `LName`,`t`.`email` AS `email`,`t`.`contact` AS `contact`,`t`.`telephone` AS `telephone`,`c`.`CID` AS `CID`,`l`.`LID` AS `LID`,`l`.`LDetails` AS `LDetails`,`l`.`LContact` AS `LContact`,`avgs`.`avgscore` AS `avgscore` from ((((`trainer_course_aviable` `tca` left join `avgscore` `avgs` on((`tca`.`TID` = `avgs`.`TID`))) join `course` `c`) join `trainer` `t`) join `location` `l`) where ((`tca`.`CID` = `c`.`CID`) and (`tca`.`TID` = `t`.`id`) and (`tca`.`LID` = `l`.`LID`)) order by `avgs`.`avgscore` desc ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `course_view`  AS  select distinct `tca`.`TCID` AS `TCID`,`t`.`id` AS `id`,`c`.`CTID` AS `CTID`,`c`.`CName` AS `CName`,`t`.`firstname` AS `firstname`,`t`.`lastname` AS `lastname`,`t`.`nickname` AS `nickname`,`t`.`gender` AS `gender`,`tca`.`TCPrice` AS `TCPrice`,`tca`.`TCDetails` AS `TCDetails`,`l`.`LName` AS `LName`,`t`.`email` AS `email`,`t`.`contact` AS `contact`,`t`.`telephone` AS `telephone`,`c`.`CID` AS `CID`,`l`.`LID` AS `LID`,`l`.`LDetails` AS `LDetails`,`l`.`LContact` AS `LContact`,`avgs`.`avgscore` AS `avgscore` from ((((`trainer_course_aviable` `tca` left join `avgscore` `avgs` on(`tca`.`TID` = `avgs`.`TID`)) join `course` `c`) join `trainer` `t`) join `location` `l`) where `tca`.`CID` = `c`.`CID` and `tca`.`TID` = `t`.`id` and `tca`.`LID` = `l`.`LID` order by `avgs`.`avgscore` desc ;
 
 --
 -- Indexes for dumped tables
@@ -424,7 +413,7 @@ ALTER TABLE `course_type`
 -- AUTO_INCREMENT for table `engage`
 --
 ALTER TABLE `engage`
-  MODIFY `ENGID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `ENGID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `location`
@@ -436,7 +425,7 @@ ALTER TABLE `location`
 -- AUTO_INCREMENT for table `trainer`
 --
 ALTER TABLE `trainer`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `trainer_course_aviable`
@@ -448,7 +437,7 @@ ALTER TABLE `trainer_course_aviable`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- Constraints for dumped tables
