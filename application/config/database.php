@@ -94,6 +94,7 @@ if (ENVIRONMENT !== 'production') {
         'stricton' => false,
         'failover' => array(),
         'save_queries' => true,
+
     );
 } else {
     $db['default'] = array(
